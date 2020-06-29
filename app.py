@@ -45,3 +45,4 @@ def calculate(frm, to, amt):
     # Returning the output only upto 2 decimal places
     fin = "{:.2f}".format(to_ans)
     return fin
+
