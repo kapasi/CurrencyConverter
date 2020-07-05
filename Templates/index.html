@@ -14,7 +14,7 @@
                 background-color: rgb(14, 83, 54);
                 width: 100px;
                 color: white;
-                font: x-large;
+                font: xx-large;
                 text-align: center;
             }
             .division
@@ -30,7 +30,7 @@
                 text-align: center;
                 padding-top: 50px;
             }
-            .div2
+            #div2
             {
                 font-size: 0.5in;
                 color:rgb(90, 10, 10);
@@ -47,34 +47,41 @@
 
         <div class="division">
             <form action="/" method="POST">
+
                 <input type="text" name="amount" placeholder="Enter amount here">
-                <input type="submit" placeholder="Convert">
-                <br>
-                <br>
+
+                <br><br>
+
                 <select class= "form" name="from" >
                     <option disabled selected value=""> From </option>
                         {% for i in currency %}
                         <option> {{i}} </option>
                         {% endfor %}
                 </select>
+
                 <select class= "form" name="to">
                     <option disabled selected value=""> To </option>
                     {% for j in currency %}
                     <option> {{j}} </option>
                     {% endfor %}
                 </select>  
+
+                <br><br>
+
+                <button type="submit" onclick="hide()">Convert</button>
             </form>
 
             <form action="/">
-                <br> <br>
+
+                <br><br>
+
                 <button type="submit" method="GET" style="font-size: medium;">Reset</button>
             </form>
         </div>
 
-        <div class="div2" >
-                Converted amount is: <br>{{ unit }} {{ ans }}
+        <div id = "div2">
+                Converted amount is: <br> {{ unit }} {{ ans }}
                 <br>
-                show conversion rate
-        </div>        
+        </div>    
     </body>
 </html>
