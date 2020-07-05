@@ -40,8 +40,8 @@ def index():
             return render_template("apology.html", inp = "Enter amount")
 
         # Passing the input values to function "calculate" to find the answer
-        ans = calculate(frm, to, float(amt))
-        return render_template('index.html', ans = ans, unit = to)
+        con_rate, ans, date = calculate(frm, to, float(amt))
+        return render_template('index.html', ans = ans, unit = to, con_rate = con_rate, date = date)
 
 
 def isDigit(x):
@@ -61,9 +61,10 @@ def calculate(frm, to, amt):
     if jason == None:
         return render_template("apology.html",inp = "Oops, Something Went Wrong")
     con_rate = jason['rates'][to]
+    date = jason['date']
     ans = con_rate*amt
     fin = "{:.2f}".format(ans)
-    return fin
+    return [con_rate, fin, date]
     # Converting 
     # if to == 'INR':
     #     return "{:.2f}".format((OTHER_TO_INR[frm] * amt))
